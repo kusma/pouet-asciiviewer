@@ -1,13 +1,7 @@
 @font-face {
-  font-family: 'topaz';
-  src: url('topaz_a1200.woff2') format('woff2'),
-       url('topaz_a1200.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'topaz-hires';
-  src: url('topaz_a1200-hires.woff2') format('woff2'),
-       url('topaz_a1200-hires.woff') format('woff');
+    font-family: 'ibm-80x25';
+    src: url('ibm-vga8.woff2') format('woff2'),
+         url('ibm-vga8.woff') format('woff');
 }
 
 @font-face {
@@ -17,7 +11,13 @@
 }
 
 @font-face {
-    font-family: 'ibm-80x25';
-    src: url('ibm-vga8.woff2') format('woff2'),
-         url('ibm-vga8.woff') format('woff');
+  font-family: 'topaz';
+  src: url('topaz_a1200.woff2') format('woff2'),
+       url('topaz_a1200.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'topaz-hires';
+  src: url('topaz_a1200-hires.woff2') format('woff2'),
+       url('topaz_a1200-hires.woff') format('woff');
 }
