@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'ibm-80x25';
-    src: url('ibm-vga8.woff2') format('woff2'),
-         url('ibm-vga8.woff') format('woff');
+    src: url('Px437_IBM_VGA8.woff2') format('woff2'),
+         url('Px437_IBM_VGA8.woff') format('woff');
 }
 
 @font-face {
     font-family: 'ibm-80x50';
-    src: url('ibm-cga.woff2') format('woff2'),
-         url('ibm-cga.woff') format('woff');
+    src: url('Px437_IBM_CGA.woff2') format('woff2'),
+         url('Px437_IBM_CGA.woff') format('woff');
 }
 
 @font-face {
