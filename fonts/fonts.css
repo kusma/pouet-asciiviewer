@@ -12,12 +12,12 @@
 
 @font-face {
   font-family: 'topaz';
-  src: url('topaz_a1200.woff2') format('woff2'),
-       url('topaz_a1200.woff') format('woff');
+  src: url('Topaz_a1200_v1.0.woff2') format('woff2'),
+       url('Topaz_a1200_v1.0.woff') format('woff');
 }
 
 @font-face {
   font-family: 'topaz-hires';
-  src: url('topaz_a1200-hires.woff2') format('woff2'),
-       url('topaz_a1200-hires.woff') format('woff');
+  src: url('Topaz_a1200_v1.0-hires.woff2') format('woff2'),
+       url('Topaz_a1200_v1.0-hires.woff') format('woff');
 }
