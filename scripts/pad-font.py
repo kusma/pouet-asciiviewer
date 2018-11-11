@@ -30,11 +30,11 @@ def main():
     parser.add_argument('files', metavar='FILE', nargs='*')
     args = parser.parse_args()
 
-    cp437_codepoints = [get_cp437(x) for x in range(256)]
-    cp437_codepoints = list(filter(lambda x: ucd.category(x) != 'Cc', cp437_codepoints))
+    cp437_codepoints = [(get_cp437(x), x) for x in range(256)]
+    cp437_codepoints = list(filter(lambda x: ucd.category(x[0]) != 'Cc', cp437_codepoints))
 
-    ecma94_codepoints = [bytes([x]).decode('iso-8859-1') for x in range(256)]
-    ecma94_codepoints = list(filter(lambda x: ucd.category(x) != 'Cc', ecma94_codepoints))
+    ecma94_codepoints = [(bytes([x]).decode('iso-8859-1'), x) for x in range(256)]
+    ecma94_codepoints = list(filter(lambda x: ucd.category(x[0]) != 'Cc', ecma94_codepoints))
 
     for file in args.files:
         font = TTFont(file)
@@ -42,14 +42,24 @@ def main():
         cmap = font.getBestCmap()
 
         # "patch up" Amiga font for missing DOS characters:
-        for c in cp437_codepoints:
-            if ord(c) not in cmap:
-                cmap[ord(c)] = cmap[ord(' ')]
+        for p in cp437_codepoints:
+            c = ord(p[0])
+            if c not in cmap:
+                ecma94 = bytes([p[1]]).decode('iso-8859-1')
+                if ord(ecma94) in cmap:
+                    cmap[c] = cmap[ord(ecma94)]
+                else:
+                    cmap[c] = cmap[ord('?')]
 
         # "patch up" DOS font for missing Amiga characters:
-        for c in ecma94_codepoints:
-            if ord(c) not in cmap:
-                cmap[ord(c)] = cmap[ord(' ')]
+        for p in ecma94_codepoints:
+            c = ord(p[0])
+            if c not in cmap:
+                cp437 = get_cp437(p[1])
+                if ord(cp437) in cmap:
+                    cmap[c] = cmap[ord(cp437)]
+                else:
+                    cmap[c] = cmap[ord('?')]
 
         font.save(file)
 
