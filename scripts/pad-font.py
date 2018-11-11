@@ -45,21 +45,13 @@ def main():
         for p in cp437_codepoints:
             c = ord(p[0])
             if c not in cmap:
-                ecma94 = bytes([p[1]]).decode('iso-8859-1')
-                if ord(ecma94) in cmap:
-                    cmap[c] = cmap[ord(ecma94)]
-                else:
-                    cmap[c] = cmap[ord('?')]
+                cmap[c] = cmap[ord('?')]
 
         # "patch up" DOS font for missing Amiga characters:
         for p in ecma94_codepoints:
             c = ord(p[0])
             if c not in cmap:
-                cp437 = get_cp437(p[1])
-                if ord(cp437) in cmap:
-                    cmap[c] = cmap[ord(cp437)]
-                else:
-                    cmap[c] = cmap[ord('?')]
+                cmap[c] = cmap[ord('?')]
 
         font.save(file)
 
