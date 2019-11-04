@@ -14,9 +14,11 @@ const webfontsGenerator = require('webfonts-generator');
 
 webfontsGenerator({
   files: svgfiles,
-  fontName: 'rezfont',
+  fontName: 'rez-ascii',
   fixedWidth: true,
-  dest: 'dest/',
+  types: ['ttf'],
+  css: false,
+  dest: 'ttfs/',
   startCodepoint: 0,
   codepoints: codepoints
 }, function(error) {
