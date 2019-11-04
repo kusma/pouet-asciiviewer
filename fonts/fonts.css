@@ -11,6 +11,12 @@
 }
 
 @font-face {
+  font-family: 'rez-ascii';
+  src: url('rez-ascii.woff2') format('woff2'),
+       url('rez-ascii.woff') format('woff');
+}
+
+@font-face {
   font-family: 'topaz';
   src: url('Topaz_a1200_v1.0.woff2') format('woff2'),
        url('Topaz_a1200_v1.0.woff') format('woff');
